@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal SKPK Miri</title>
+    
+    <!-- Tetapan Ikon untuk Telefon Bimbit (Home Screen) -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SKPK Miri">
+    <meta name="theme-color" content="#1e3a8a">
+
+    <!-- Memuatkan Tailwind CSS untuk gaya paparan moden -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuatkan ikon dari Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Memuatkan font dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        /* Animasi halus untuk buka/tutup menu */
+        .menu-content {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen relative pb-10">
+
+    <!-- Latar belakang hiasan -->
+    <div class="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-blue-900 to-transparent -z-10"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+        
+        <!-- Bahagian Pengepala (Header) -->
+        <div class="text-center mb-10 md:mb-14">
+            <div class="inline-flex items-center justify-center w-24 h-24 md:w-28 md:h-28 bg-white rounded-full shadow-lg mb-4 md:mb-6 border-4 border-blue-50/50 overflow-hidden p-1">
+                <img src="logo.png" alt="Logo SKPK Miri" class="w-full h-full object-contain rounded-full" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=SKPK';">
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-2 tracking-tight">Portal SKPK Miri</h1>
+            
+            <!-- Paparan Jam Digital -->
+            <div class="mt-4 md:mt-6 inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full shadow-sm text-xs md:text-sm font-semibold text-white border border-white/20">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+                <span id="live-clock">Memuatkan masa...</span>
+            </div>
+        </div>
+
+        <!-- Senarai Kategori Utama (Accordion & Pautan Utama) -->
+        <div class="space-y-4">
+
+            <!-- Pautan Utama: Site Sekolah & Pusat Data -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Site Sekolah -->
+                <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri" target="_blank" rel="noopener noreferrer" class="w-full bg-white rounded-2xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all border border-slate-100 flex items-center gap-4 group">
+                    <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h2 class="text-base md:text-lg font-bold text-slate-800 group-hover:text-sky-600 transition-colors leading-tight">Laman Web Sekolah</h2>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-sky-50 group-hover:text-sky-600 transition-colors shrink-0">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Pusat Data Sekolah -->
+                <a href="https://lookerstudio.google.com/reporting/9a4a4ec1-fa91-4181-98ae-4fdd314bc1d9" target="_blank" rel="noopener noreferrer" class="w-full bg-white rounded-2xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all border border-slate-100 flex items-center gap-4 group">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <i data-lucide="database" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h2 class="text-base md:text-lg font-bold text-slate-800 group-hover:text-blue-600 transition-colors leading-tight">Pusat Data Sekolah</h2>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors shrink-0">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Kategori 2: Kurikulum -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden mt-6">
+                <button onclick="toggleMenu('menu-kurikulum')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-emerald-600 transition-colors">Kurikulum</h2>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                        <i data-lucide="chevron-down" id="icon-menu-kurikulum" class="w-5 h-5 transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="menu-kurikulum" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                        <!-- Sub-menu Kurikulum -->
+                        <a href="#" onclick="showModal('eOPR'); return false;" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="file-text" class="w-6 h-6 mb-2 text-indigo-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">eOPR</span>
+                        </a>
+                        <a href="https://myalt.moe.gov.my/pages/more" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="folder-open" class="w-6 h-6 mb-2 text-amber-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">PAPR</span>
+                        </a>
+                        <a href="https://sitemidskpkm.netlify.app/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="graduation-cap" class="w-6 h-6 mb-2 text-pink-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">ID Delima Murid</span>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1h3rQHDGSD8os7hCk4hetD5ktJXG-9OzI/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="calendar-days" class="w-6 h-6 mb-2 text-emerald-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Waktu Kelas</span>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1rdj_fBrpl2aTx_B-veVyYTJfSm-1Gn_h/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="calendar-clock" class="w-6 h-6 mb-2 text-teal-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Waktu Guru</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kategori 3: HEM (Hal Ehwal Murid) -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                <button onclick="toggleMenu('menu-hem')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-rose-600 transition-colors">Hal Ehwal Murid (HEM)</h2>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                        <i data-lucide="chevron-down" id="icon-menu-hem" class="w-5 h-5 transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="menu-hem" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                        <!-- Sub-menu HEM -->
+                        <a href="https://idme.moe.gov.my/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="shield-check" class="w-6 h-6 mb-2 text-rose-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">IDME</span>
+                        </a>
+                        <a href="https://appsjohor.moe.gov.my/rmt/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="utensils" class="w-6 h-6 mb-2 text-red-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laporan RMT</span>
+                        </a>
+                        <a href="https://laporangurubertugasskpkmiri.netlify.app/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="clipboard-check" class="w-6 h-6 mb-2 text-purple-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laporan Guru Bertugas</span>
+                        </a>
+                        <a href="https://jadualbertugasskpkm.netlify.app" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="calendar" class="w-6 h-6 mb-2 text-orange-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Guru Bertugas</span>
+                        </a>
+                        <a href="#" onclick="showModal('Senarai Nama Pengawas'); return false;" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="user-check" class="w-6 h-6 mb-2 text-cyan-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Senarai Nama Pengawas</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kategori 4: Kokurikulum -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                <button onclick="toggleMenu('menu-koko')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-orange-600 transition-colors">Kokurikulum</h2>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                        <i data-lucide="chevron-down" id="icon-menu-koko" class="w-5 h-5 transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="menu-koko" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                        <!-- Sub-menu Kokurikulum -->
+                        <a href="https://www.appsheet.com/start/69a8f74c-5a63-4822-a941-76d45764567a" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="activity" class="w-6 h-6 mb-2 text-orange-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">eKoku</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kategori 5: Pengurusan Fasiliti -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                <button onclick="toggleMenu('menu-fasiliti')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <i data-lucide="monitor" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-violet-600 transition-colors">Pengurusan Fasiliti</h2>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                        <i data-lucide="chevron-down" id="icon-menu-fasiliti" class="w-5 h-5 transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="menu-fasiliti" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                        <!-- Sub-menu Fasiliti -->
+                        <a href="#" onclick="showModal('Rekod Penggunaan Bilik Khas'); return false;" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="key" class="w-6 h-6 mb-2 text-cyan-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod Bilik Khas</span>
+                        </a>
+                        <a href="#" onclick="showModal('Rekod Penggunaan Peranti ICT'); return false;" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="laptop" class="w-6 h-6 mb-2 text-violet-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod Peranti ICT</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kategori 6: Media Sosial -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                <button onclick="toggleMenu('menu-sosial')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <i data-lucide="smartphone" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-pink-600 transition-colors">Media Sosial</h2>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                        <i data-lucide="chevron-down" id="icon-menu-sosial" class="w-5 h-5 transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="menu-sosial" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/share/1FKUYx4kx7/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <img src="facebook.png" alt="Facebook" class="w-7 h-7 mb-2 object-contain group-hover/item:scale-110 transition-transform">
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Facebook</span>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@skpkmiri?_r=1&_t=ZS-95cvsqHTYWH" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <img src="tiktok.png" alt="TikTok" class="w-7 h-7 mb-2 object-contain group-hover/item:scale-110 transition-transform">
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">TikTok</span>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="https://www.youtube.com/channel/UCTJSBprlduP_gc1zleh1uKQ" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <img src="youtube.png" alt="YouTube" class="w-7 h-7 mb-2 object-contain group-hover/item:scale-110 transition-transform">
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">YouTube</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-16 text-center text-slate-400 text-sm font-medium">
+            <p>&copy; <span id="current-year"></span> Unit ICT SKPK Miri. Hanya untuk kegunaan warga SKPK Miri.</p>
+        </div>
+    </div>
+
+    <!-- Kotak Pop-up (Modal) untuk pautan yang belum ada -->
+    <div id="system-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden items-center justify-center z-50 transition-opacity">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+            <div class="w-20 h-20 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-5 border-4 border-amber-50">
+                <i data-lucide="construction" class="w-10 h-10"></i>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-bold text-center text-slate-800 mb-3">Tajuk Modul</h3>
+            <p class="text-center text-slate-500 mb-8 font-medium leading-relaxed">Harap maklum, pautan untuk sistem ini sedang diselenggara atau belum ditetapkan buat masa ini.</p>
+            <button onclick="closeModal()" class="w-full bg-slate-800 text-white rounded-2xl py-3.5 font-bold hover:bg-slate-700 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                Tutup Makluman
+            </button>
+        </div>
+    </div>
+
+    <!-- Skrip Aplikasi -->
+    <script>
+        // 1. Memulakan semua ikon Lucide
+        lucide.createIcons();
+
+        // 2. Skrip untuk Jam Digital Terkini
+        function updateClock() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateStr = now.toLocaleDateString('ms-MY', options);
+            const timeStr = now.toLocaleTimeString('ms-MY', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            
+            document.getElementById('live-clock').textContent = `${dateStr} | ${timeStr}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Tetapkan tahun semasa di bahagian footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // 3. Skrip Buka/Tutup Menu (Accordion)
+        function toggleMenu(menuId) {
+            const menuContent = document.getElementById(menuId);
+            const icon = document.getElementById('icon-' + menuId);
+            
+            if (menuContent.classList.contains('hidden')) {
+                // Buka menu
+                menuContent.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                // Tutup menu
+                menuContent.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // 4. Skrip Kawalan Pop-up (Modal)
+        function showModal(title) {
+            const modal = document.getElementById('system-modal');
+            const modalContent = document.getElementById('modal-content');
+            const modalTitle = document.getElementById('modal-title');
+            
+            modalTitle.textContent = title;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('system-modal');
+            const modalContent = document.getElementById('modal-content');
+            
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+
+        document.getElementById('system-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
