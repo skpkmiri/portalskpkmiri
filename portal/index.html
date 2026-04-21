@@ -105,6 +105,10 @@
                             <i data-lucide="scroll" class="w-6 h-6 mb-2 text-indigo-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Galeri Sijil Guru</span>
                         </a>
+                        <a href="#" onclick="showModal('Keberadaan Guru'); return false;" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="user-check" class="w-6 h-6 mb-2 text-emerald-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Keberadaan Guru</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -400,7 +404,7 @@
 
     <!-- Kotak Pop-up (Modal) untuk pautan yang belum ada -->
     <div id="system-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden items-center justify-center z-50 transition-opacity">
-        <div class="bg-white rounded-3xl p-8 max-sm w-full mx-4 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
             <div class="w-20 h-20 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-5 border-4 border-amber-50">
                 <i data-lucide="construction" class="w-10 h-10"></i>
             </div>
