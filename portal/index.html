@@ -86,8 +86,31 @@
                 </a>
             </div>
 
-            <!-- Kategori 2: Kurikulum -->
+            <!-- Kategori 1: Pentadbiran & Pengurusan -->
             <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden mt-6">
+                <button onclick="toggleMenu('menu-admin')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <i data-lucide="building-2" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">Pentadbiran & Pengurusan</h2>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                        <i data-lucide="chevron-down" id="icon-menu-admin" class="w-5 h-5 transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="menu-admin" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                        <a href="https://sijilkepakaran.sekolah-8943-cm1.workers.dev/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="scroll" class="w-6 h-6 mb-2 text-indigo-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Galeri Sijil Guru</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kategori 2: Kurikulum -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
                 <button onclick="toggleMenu('menu-kurikulum')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
                     <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
                         <i data-lucide="book-open" class="w-6 h-6"></i>
@@ -210,37 +233,30 @@
                     
                     <!-- Menu Umum Kokurikulum -->
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                        <!-- Pengurusan Kokurikulum -->
                         <a href="https://sites.google.com/moe-dl.edu.my/kkskpkmiri/home" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="layout-dashboard" class="w-6 h-6 mb-2 text-sky-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pengurusan Koko</span>
                         </a>
-                        <!-- Rekod Kokurikulum (DIKEMASKINI PAUTAN) -->
                         <a href="https://erekodkoku.sekolah-8943-cm1.workers.dev/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="clipboard-edit" class="w-6 h-6 mb-2 text-indigo-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod Koko</span>
                         </a>
-                        <!-- Senarai Ahli -->
                         <a href="https://senaraiahlikelab.sekolah-8943-cm1.workers.dev/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="contact-2" class="w-6 h-6 mb-2 text-violet-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Senarai Ahli</span>
                         </a>
-                        <!-- Jadual Perjumpaan Kokurikulum -->
                         <a href="https://jadualperjumpaankoko.sekolah-8943-cm1.workers.dev/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="calendar-check" class="w-6 h-6 mb-2 text-emerald-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Perjumpaan</span>
                         </a>
-                        <!-- Jadual Penggunaan Baju -->
                         <a href="#" onclick="showModal('Jadual Penggunaan Baju'); return false;" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="shirt" class="w-6 h-6 mb-2 text-pink-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Baju</span>
                         </a>
-                        <!-- Pekeliling -->
                         <a href="#" onclick="showModal('Pekeliling'); return false;" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="file-badge" class="w-6 h-6 mb-2 text-amber-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pekeliling</span>
                         </a>
-                        <!-- Pencapaian Murid -->
                         <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri/pencapaian" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="trophy" class="w-6 h-6 mb-2 text-yellow-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pencapaian Murid</span>
@@ -254,26 +270,46 @@
                         <div class="flex-1 h-px bg-slate-200 ml-2"></div>
                     </div>
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
-                        <!-- Charmander (Api/Merah) -->
                         <a href="https://canva.link/charmander" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-red-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="flame" class="w-6 h-6 mb-2 text-red-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-red-600 leading-tight">Charmander</span>
                         </a>
-                        <!-- Bulbasaur (Daun/Hijau) -->
                         <a href="https://canva.link/bulbasaur" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-green-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="leaf" class="w-6 h-6 mb-2 text-green-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-green-600 leading-tight">Bulbasaur</span>
                         </a>
-                        <!-- Squirtle (Air/Biru) -->
                         <a href="https://canva.link/w6m59yj0sjlf1cw" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-blue-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="droplet" class="w-6 h-6 mb-2 text-blue-500 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="text-xs md:text-sm font-bold text-blue-600 करीं leading-tight">Squirtle</span>
+                            <span class="text-xs md:text-sm font-bold text-blue-600 leading-tight">Squirtle</span>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Kategori 5: Pengurusan Fasiliti -->
+            <!-- Kategori 5: PIBG (Selepas Kokurikulum) -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                <button onclick="toggleMenu('menu-pibg')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-amber-600 transition-colors">PIBG</h2>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                        <i data-lucide="chevron-down" id="icon-menu-pibg" class="w-5 h-5 transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="menu-pibg" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                        <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri/pibg" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="external-link" class="w-6 h-6 mb-2 text-amber-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laman Rasmi PIBG</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kategori 6: Pengurusan Fasiliti -->
             <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
                 <button onclick="toggleMenu('menu-fasiliti')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
                     <div class="w-12 h-12 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
@@ -300,7 +336,30 @@
                 </div>
             </div>
 
-            <!-- Kategori 6: Media Sosial -->
+            <!-- Kategori 7: Galeri Sekolah -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                <button onclick="toggleMenu('menu-galeri')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <i data-lucide="images" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-cyan-600 transition-colors">Galeri Sekolah</h2>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                        <i data-lucide="chevron-down" id="icon-menu-galeri" class="w-5 h-5 transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="menu-galeri" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                        <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri/galeri" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="image" class="w-6 h-6 mb-2 text-cyan-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Galeri Foto & Video</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kategori 8: Media Sosial -->
             <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
                 <button onclick="toggleMenu('menu-sosial')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
                     <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
