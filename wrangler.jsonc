@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portalskpkmiri",
+  "compatibility_date": "2026-04-26",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "portal"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
