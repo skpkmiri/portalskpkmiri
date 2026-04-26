@@ -41,7 +41,7 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
         
         <!-- Bahagian Pengepala (Header) -->
-        <div class="text-center mb-10 md:mb-14">
+        <div class="text-center mb-10">
             <div class="inline-flex items-center justify-center w-24 h-24 md:w-28 md:h-28 bg-white rounded-full shadow-lg mb-4 md:mb-6 border-4 border-blue-50/50 overflow-hidden p-1">
                 <img src="logo.png" alt="Logo SKPK Miri" class="w-full h-full object-contain rounded-full" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=SKPK';">
             </div>
@@ -54,37 +54,8 @@
             </div>
         </div>
 
-        <!-- Senarai Kategori Utama (Accordion & Pautan Utama) -->
+        <!-- Senarai Kategori Utama (Accordion) -->
         <div class="space-y-4">
-
-            <!-- Pautan Utama: Site Sekolah & Pusat Data -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- Site Sekolah -->
-                <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri" target="_blank" rel="noopener noreferrer" class="w-full bg-white rounded-2xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all border border-slate-100 flex items-center gap-4 group">
-                    <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
-                        <i data-lucide="globe" class="w-6 h-6"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <h2 class="text-base md:text-lg font-bold text-slate-800 group-hover:text-sky-600 transition-colors leading-tight">Laman Web Sekolah</h2>
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-sky-50 group-hover:text-sky-600 transition-colors shrink-0">
-                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                    </div>
-                </a>
-
-                <!-- Pusat Data Sekolah -->
-                <a href="https://lookerstudio.google.com/reporting/9a4a4ec1-fa91-4181-98ae-4fdd314bc1d9" target="_blank" rel="noopener noreferrer" class="w-full bg-white rounded-2xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all border border-slate-100 flex items-center gap-4 group">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
-                        <i data-lucide="database" class="w-6 h-6"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <h2 class="text-base md:text-lg font-bold text-slate-800 group-hover:text-blue-600 transition-colors leading-tight">Pusat Data Sekolah</h2>
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors shrink-0">
-                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                    </div>
-                </a>
-            </div>
 
             <!-- Kategori 1: Pentadbiran & Pengurusan -->
             <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden mt-6">
@@ -101,6 +72,11 @@
                 </button>
                 <div id="menu-admin" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                        <!-- Pusat Data Sekolah (DIPINDAHKAN KE SINI) -->
+                        <a href="https://lookerstudio.google.com/reporting/9a4a4ec1-fa91-4181-98ae-4fdd314bc1d9" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="database" class="w-6 h-6 mb-2 text-blue-600 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pusat Data Sekolah</span>
+                        </a>
                         <a href="https://sijilkepakaran.sekolah-8943-cm1.workers.dev/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="scroll" class="w-6 h-6 mb-2 text-indigo-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Galeri Sijil Guru</span>
@@ -113,12 +89,10 @@
                             <i data-lucide="user-check" class="w-6 h-6 mb-2 text-emerald-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Keberadaan Staff</span>
                         </a>
-                        <!-- HRMIS (BAHARU) -->
                         <a href="https://hrmis2.eghrmis.gov.my/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="users-2" class="w-6 h-6 mb-2 text-sky-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">HRMIS</span>
                         </a>
-                        <!-- e-Operasi (BAHARU) -->
                         <a href="https://eoperasi.moe.gov.my/index.cfm" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="database" class="w-6 h-6 mb-2 text-orange-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">e-Operasi</span>
@@ -141,8 +115,6 @@
                     </div>
                 </button>
                 <div id="menu-kurikulum" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
-                    
-                    <!-- Menu Utama Kurikulum -->
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
                         <a href="https://sistemidsekolah.sekolah-8943-cm1.workers.dev/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="graduation-cap" class="w-6 h-6 mb-2 text-pink-500 group-hover/item:scale-110 transition-transform"></i>
@@ -259,8 +231,6 @@
                     </div>
                 </button>
                 <div id="menu-koko" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
-                    
-                    <!-- Menu Umum Kokurikulum -->
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
                         <a href="https://sites.google.com/moe-dl.edu.my/kkskpkmiri/home" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="layout-dashboard" class="w-6 h-6 mb-2 text-sky-500 group-hover/item:scale-110 transition-transform"></i>
@@ -402,7 +372,12 @@
                     </div>
                 </button>
                 <div id="menu-sosial" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                        <!-- Laman Web Sekolah (DIPINDAHKAN KE SINI) -->
+                        <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="globe" class="w-6 h-6 mb-2 text-sky-600 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laman Web Sekolah</span>
+                        </a>
                         <a href="https://www.facebook.com/share/1FKUYx4kx7/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <img src="facebook.png" alt="Facebook" class="w-7 h-7 mb-2 object-contain group-hover/item:scale-110 transition-transform">
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Facebook</span>
