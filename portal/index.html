@@ -132,8 +132,6 @@
                     </div>
                 </button>
                 <div id="menu-kurikulum" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
-                    
-                    <!-- Menu Utama Kurikulum -->
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
                         <a href="https://sistemidsekolah.sekolah-8943-cm1.workers.dev/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="graduation-cap" class="w-6 h-6 mb-2 text-pink-500 group-hover/item:scale-110 transition-transform"></i>
@@ -157,7 +155,6 @@
                         </a>
                     </div>
 
-                    <!-- Sub-kategori: PAPR -->
                     <div class="mt-6 mb-3 flex items-center gap-2">
                         <i data-lucide="folder-search" class="w-5 h-5 text-slate-400"></i>
                         <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">PAPR</h3>
@@ -174,7 +171,6 @@
                         </a>
                     </div>
 
-                    <!-- Sub-kategori: Pusat Sumber Sekolah -->
                     <div class="mt-6 mb-3 flex items-center gap-2">
                         <i data-lucide="library" class="w-5 h-5 text-slate-400"></i>
                         <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">Pusat Sumber Sekolah</h3>
@@ -185,7 +181,6 @@
                             <i data-lucide="book-marked" class="w-6 h-6 mb-2 text-cyan-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">eLibrary</span>
                         </a>
-                        <!-- DIKEMASKINI: Rekod Nilam -->
                         <a href="https://rekodbacaannilam.sekolah-8943-cm1.workers.dev/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="bookmark" class="w-6 h-6 mb-2 text-emerald-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod Nilam</span>
@@ -198,7 +193,7 @@
                 </div>
             </div>
 
-            <!-- Kategori 3: HEM (Hal Ehwal Murid) -->
+            <!-- Kategori 3: HEM -->
             <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
                 <button onclick="toggleMenu('menu-hem')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
                     <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
@@ -286,7 +281,6 @@
                         </a>
                     </div>
 
-                    <!-- Sub-kategori: Rumah Sukan -->
                     <div class="mt-6 mb-3 flex items-center gap-2">
                         <i data-lucide="flag" class="w-5 h-5 text-slate-400"></i>
                         <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">Rumah Sukan</h3>
@@ -359,28 +353,19 @@
                 </div>
             </div>
 
-            <!-- Kategori 7: Galeri Sekolah -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <button onclick="toggleMenu('menu-galeri')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
-                    <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
-                        <i data-lucide="images" class="w-6 h-6"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-cyan-600 transition-colors">Galeri Sekolah</h2>
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
-                        <i data-lucide="chevron-down" id="icon-menu-galeri" class="w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                </button>
-                <div id="menu-galeri" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                        <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri/galeri" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="image" class="w-6 h-6 mb-2 text-cyan-500 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Galeri Foto & Video</span>
-                        </a>
-                    </div>
+            <!-- Kategori 7: Galeri Sekolah (DIKEMASKINI: Pautan Terus) -->
+            <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri/galeri" target="_blank" rel="noopener noreferrer" class="w-full bg-white rounded-2xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all border border-slate-100 flex items-center gap-4 group">
+                <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                    <i data-lucide="images" class="w-6 h-6"></i>
                 </div>
-            </div>
+                <div class="flex-1 text-left">
+                    <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-cyan-600 transition-colors">Galeri Sekolah</h2>
+                    <p class="text-xs text-slate-500 font-medium italic">Koleksi foto dan video aktiviti sekolah</p>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-cyan-50 group-hover:text-cyan-600 transition-colors shrink-0">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                </div>
+            </a>
 
             <!-- Kategori 8: Media Sosial -->
             <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
@@ -439,52 +424,40 @@
         </div>
     </div>
 
-    <!-- Skrip Aplikasi -->
     <script>
-        // 1. Memulakan semua ikon Lucide
         lucide.createIcons();
 
-        // 2. Skrip untuk Jam Digital Terkini
         function updateClock() {
             const now = new Date();
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             const dateStr = now.toLocaleDateString('ms-MY', options);
             const timeStr = now.toLocaleTimeString('ms-MY', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-            
             document.getElementById('live-clock').textContent = `${dateStr} | ${timeStr}`;
         }
         setInterval(updateClock, 1000);
         updateClock();
 
-        // Tetapkan tahun semasa di bahagian footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // 3. Skrip Buka/Tutup Menu (Accordion)
         function toggleMenu(menuId) {
             const menuContent = document.getElementById(menuId);
             const icon = document.getElementById('icon-' + menuId);
-            
             if (menuContent.classList.contains('hidden')) {
-                // Buka menu
                 menuContent.classList.remove('hidden');
                 icon.classList.add('rotate-180');
             } else {
-                // Tutup menu
                 menuContent.classList.add('hidden');
                 icon.classList.remove('rotate-180');
             }
         }
 
-        // 4. Skrip Kawalan Pop-up (Modal)
         function showModal(title) {
             const modal = document.getElementById('system-modal');
             const modalContent = document.getElementById('modal-content');
             const modalTitle = document.getElementById('modal-title');
-            
             modalTitle.textContent = title;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            
             setTimeout(() => {
                 modalContent.classList.remove('scale-95', 'opacity-0');
                 modalContent.classList.add('scale-100', 'opacity-100');
@@ -494,10 +467,8 @@
         function closeModal() {
             const modal = document.getElementById('system-modal');
             const modalContent = document.getElementById('modal-content');
-            
             modalContent.classList.remove('scale-100', 'opacity-100');
             modalContent.classList.add('scale-95', 'opacity-0');
-            
             setTimeout(() => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
@@ -505,9 +476,7 @@
         }
 
         document.getElementById('system-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+            if (e.target === this) closeModal();
         });
     </script>
 </body>
