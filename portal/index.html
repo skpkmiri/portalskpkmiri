@@ -33,437 +33,437 @@
 </head>
 <body class="min-h-screen relative pb-10">
 
-    <!-- MODAL LOG MASUK (STRUKTUR SEKURITI) -->
+    <!-- MODAL LOG MASUK (STRUKTUR BAHARU) -->
     <div id="login-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl border border-slate-100">
-            <h2 class="text-2xl font-bold text-slate-800 mb-2">Log Masuk Sistem</h2>
-            <p class="text-sm text-slate-500 mb-6">Sila masukkan No. Kad Pengenalan untuk akses portal.</p>
+            <h2 class="text-2xl font-bold text-slate-800 mb-2">Log Masuk Portal</h2>
+            <p class="text-sm text-slate-500 mb-6">Sila masukkan No. Kad Pengenalan untuk akses.</p>
             <input type="text" id="ic-input" placeholder="Contoh: 91011013xxxx" class="w-full p-3 border border-slate-200 rounded-xl mb-4 focus:ring-2 focus:ring-blue-500 outline-none">
-            <button onclick="verifyIC()" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-md">Akses Portal</button>
+            <button id="login-btn" onclick="verifyIC()" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-md">Akses Portal</button>
             <p id="error-msg" class="text-red-500 text-xs mt-3 hidden text-center font-bold">No. KP tidak sah.</p>
         </div>
     </div>
 
-    <!-- MAIN CONTENT WRAPPER -->
+    <!-- WRAPPER KANDUNGAN ASAL -->
     <div id="main-content" style="display: none;">
+        <div class="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-blue-900 to-transparent -z-10"></div>
 
-    <div class="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-blue-900 to-transparent -z-10"></div>
-
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        
-        <!-- Header -->
-        <div class="text-center mb-10">
-            <div class="inline-flex items-center justify-center w-24 h-24 md:w-28 md:h-28 bg-white rounded-full shadow-lg mb-4 md:mb-6 border-4 border-blue-50/50 overflow-hidden p-1">
-                <img src="logo.png" alt="Logo SKPK Miri" class="w-full h-full object-contain rounded-full" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=SKPK';">
-            </div>
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-2 tracking-tight">Portal SKPK Miri</h1>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
             
-            <div class="mt-4 md:mt-6 inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full shadow-sm text-xs md:text-sm font-semibold text-white border border-white/20">
-                <i data-lucide="clock" class="w-4 h-4"></i>
-                <span id="live-clock">Memuatkan masa...</span>
+            <!-- Header -->
+            <div class="text-center mb-10">
+                <div id="welcome-msg" class="mb-4 text-white font-bold text-lg animate-fade-in"></div>
+                <div class="inline-flex items-center justify-center w-24 h-24 md:w-28 md:h-28 bg-white rounded-full shadow-lg mb-4 md:mb-6 border-4 border-blue-50/50 overflow-hidden p-1">
+                    <img src="logo.png" alt="Logo SKPK Miri" class="w-full h-full object-contain rounded-full" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=SKPK';">
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold text-white mb-2 tracking-tight">Portal SKPK Miri</h1>
+                
+                <div class="mt-4 md:mt-6 inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full shadow-sm text-xs md:text-sm font-semibold text-white border border-white/20">
+                    <i data-lucide="clock" class="w-4 h-4"></i>
+                    <span id="live-clock">Memuatkan masa...</span>
+                </div>
             </div>
-        </div>
 
-        <div class="space-y-4">
-
-            <!-- MENU eTakwim -->
-            <a href="https://etakwim.sekolah-8943-cm1.workers.dev/" target="_blank" rel="noopener noreferrer" class="w-full bg-white rounded-2xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all border border-slate-100 flex items-center gap-4 group">
-                <div class="w-12 h-12 bg-indigo-600 text-white rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                    <i data-lucide="calendar" class="w-6 h-6"></i>
-                </div>
-                <div class="flex-1 text-left">
-                    <h2 class="text-lg md:text-xl font-extrabold text-slate-800 group-hover:text-indigo-600 transition-colors">eTakwim SKPK Miri</h2>
-                    <p class="text-xs text-slate-500 font-medium italic">Klik untuk melihat takwim sekolah terkini</p>
-                </div>
-                <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors shrink-0">
-                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                </div>
-            </a>
-
-            <!-- Kategori 1: Pentadbiran & Pengurusan -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <button onclick="toggleMenu('menu-admin')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
-                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
-                        <i data-lucide="building-2" class="w-6 h-6"></i>
+            <div class="space-y-4">
+                <!-- MENU eTakwim -->
+                <a href="https://etakwim.sekolah-8943-cm1.workers.dev/" target="_blank" rel="noopener noreferrer" class="w-full bg-white rounded-2xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all border border-slate-100 flex items-center gap-4 group">
+                    <div class="w-12 h-12 bg-indigo-600 text-white rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                        <i data-lucide="calendar" class="w-6 h-6"></i>
                     </div>
                     <div class="flex-1 text-left">
-                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">Pentadbiran & Pengurusan</h2>
+                        <h2 class="text-lg md:text-xl font-extrabold text-slate-800 group-hover:text-indigo-600 transition-colors">eTakwim SKPK Miri</h2>
+                        <p class="text-xs text-slate-500 font-medium italic">Klik untuk melihat takwim sekolah terkini</p>
                     </div>
-                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
-                        <i data-lucide="chevron-down" id="icon-menu-admin" class="w-5 h-5 transition-transform duration-300"></i>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors shrink-0">
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
                     </div>
-                </button>
-                <div id="menu-admin" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                        <a href="https://lookerstudio.google.com/reporting/9a4a4ec1-fa91-4181-98ae-4fdd314bc1d9" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="database" class="w-6 h-6 mb-2 text-blue-600"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pusat Data Sekolah</span>
-                        </a>
-                        <a href="https://sijilkepakaran.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="scroll" class="w-6 h-6 mb-2 text-indigo-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Galeri Sijil Guru</span>
-                        </a>
-                        <a href="https://eoprskpkmiri.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="file-text" class="w-6 h-6 mb-2 text-blue-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">eOPR</span>
-                        </a>
-                        <a href="https://keberadaanstaff.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="user-check" class="w-6 h-6 mb-2 text-emerald-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Keberadaan Staff</span>
-                        </a>
-                        <a href="https://hrmis2.eghrmis.gov.my/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="users-2" class="w-6 h-6 mb-2 text-sky-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">HRMIS</span>
-                        </a>
-                        <a href="https://eoperasi.moe.gov.my/index.cfm" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="database-backup" class="w-6 h-6 mb-2 text-orange-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">e-Operasi</span>
-                        </a>
-                        <a href="https://epbpppskpkmiri2026.mohamadabidin910110.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="badge-check" class="w-6 h-6 mb-2 text-blue-600"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">ePBPPP</span>
-                        </a>
-                        <a href="https://esharingskpkmiri.mohamadabidin910110.workers.dev/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="share-2" class="w-6 h-6 mb-2 text-violet-500 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">e-Sharing</span>
-                        </a>
-                        <!-- SPARK -->
-                        <a href="https://pahanmy.github.io/spark/index.html" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="sparkles" class="w-6 h-6 mb-2 text-yellow-500 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">SPARK</span>
-                        </a>
+                </a>
+
+                <!-- Kategori 1: Pentadbiran & Pengurusan -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <button onclick="toggleMenu('menu-admin')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                        <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                            <i data-lucide="building-2" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">Pentadbiran & Pengurusan</h2>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                            <i data-lucide="chevron-down" id="icon-menu-admin" class="w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div id="menu-admin" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                            <a href="https://lookerstudio.google.com/reporting/9a4a4ec1-fa91-4181-98ae-4fdd314bc1d9" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="database" class="w-6 h-6 mb-2 text-blue-600"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pusat Data Sekolah</span>
+                            </a>
+                            <a href="https://sijilkepakaran.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="scroll" class="w-6 h-6 mb-2 text-indigo-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Galeri Sijil Guru</span>
+                            </a>
+                            <a href="https://eoprskpkmiri.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="file-text" class="w-6 h-6 mb-2 text-blue-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">eOPR</span>
+                            </a>
+                            <a href="https://keberadaanstaff.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="user-check" class="w-6 h-6 mb-2 text-emerald-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Keberadaan Staff</span>
+                            </a>
+                            <a href="https://hrmis2.eghrmis.gov.my/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="users-2" class="w-6 h-6 mb-2 text-sky-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">HRMIS</span>
+                            </a>
+                            <a href="https://eoperasi.moe.gov.my/index.cfm" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="database-backup" class="w-6 h-6 mb-2 text-orange-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">e-Operasi</span>
+                            </a>
+                            <a href="https://epbpppskpkmiri2026.mohamadabidin910110.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="badge-check" class="w-6 h-6 mb-2 text-blue-600"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">ePBPPP</span>
+                            </a>
+                            <a href="https://esharingskpkmiri.mohamadabidin910110.workers.dev/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="share-2" class="w-6 h-6 mb-2 text-violet-500 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">e-Sharing</span>
+                            </a>
+                            <!-- SPARK -->
+                            <a href="https://pahanmy.github.io/spark/index.html" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="sparkles" class="w-6 h-6 mb-2 text-yellow-500 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">SPARK</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Kategori 2: Kurikulum -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <button onclick="toggleMenu('menu-kurikulum')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
-                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
-                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                <!-- Kategori 2: Kurikulum -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <button onclick="toggleMenu('menu-kurikulum')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                            <i data-lucide="book-open" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-emerald-600 transition-colors">Kurikulum</h2>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                            <i data-lucide="chevron-down" id="icon-menu-kurikulum" class="w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div id="menu-kurikulum" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                            <a href="https://sistemidsekolah.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="graduation-cap" class="w-6 h-6 mb-2 text-pink-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">ID Delima Murid</span>
+                            </a>
+                            <a href="https://drive.google.com/file/d/17KQM4rxuI0wKLjYOf-SryTiFAVirJJ6N/view?usp=drive_link" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="calendar-days" class="w-6 h-6 mb-2 text-emerald-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Waktu Kelas</span>
+                            </a>
+                            <a href="https://drive.google.com/file/d/1Cj210p6K11cADLJXQD4aUu1xyYC5YLF5/view?usp=drive_link" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="calendar-clock" class="w-6 h-6 mb-2 text-teal-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Waktu Guru</span>
+                            </a>
+                            <a href="https://minitcurai.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="clipboard-list" class="w-6 h-6 mb-2 text-blue-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Minit Curai</span>
+                            </a>
+                            <a href="https://erekodguru.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="notebook" class="w-6 h-6 mb-2 text-rose-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">eRekod Guru</span>
+                            </a>
+                            <button onclick="showMingguPersekolahan()" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="list-ordered" class="w-6 h-6 mb-2 text-indigo-600"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Minggu Persekolahan</span>
+                            </button>
+                        </div>
+                        
+                        <!-- PLC -->
+                        <div class="mt-6 mb-3 flex items-center gap-2">
+                            <i data-lucide="users" class="w-5 h-5 text-slate-400"></i>
+                            <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">PLC</h3>
+                            <div class="flex-1 h-px bg-slate-200 ml-2"></div>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                            <a href="https://drive.google.com/drive/folders/1LUxSqtMMssGOZ1NdWPbCYMCAkF7d1hKO?usp=drive_link" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="folder-text" class="w-6 h-6 mb-2 text-blue-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Bahan Rujukan PLC</span>
+                            </a>
+                            <a href="https://drive.google.com/drive/folders/19G4hghyuBaNYFNZ1FSf3GOq1-gFr8yME?usp=drive_link" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="clipboard-check" class="w-6 h-6 mb-2 text-green-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Borang Laporan PLC</span>
+                            </a>
+                        </div>
+
+                        <!-- PAPR -->
+                        <div class="mt-6 mb-3 flex items-center gap-2">
+                            <i data-lucide="folder-search" class="w-5 h-5 text-slate-400"></i>
+                            <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">PAPR</h3>
+                            <div class="flex-1 h-px bg-slate-200 ml-2"></div>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                            <a href="https://myalt.moe.gov.my/pages/more" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="folder-open" class="w-6 h-6 mb-2 text-amber-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laporan PAPR</span>
+                            </a>
+                            <a href="https://editorpapr.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="file-edit" class="w-6 h-6 mb-2 text-blue-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Editor Eviden</span>
+                            </a>
+                            <a href="https://docs.google.com/presentation/d/1-4WPgsEp6UuqT0Lz6HIkxXidToXcbJSgIse0uldWJCA/edit?usp=drivesdk" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="presentation" class="w-6 h-6 mb-2 text-rose-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Sasaran</span>
+                            </a>
+                        </div>
+
+                        <!-- PUSAT SUMBER -->
+                        <div class="mt-6 mb-3 flex items-center gap-2">
+                            <i data-lucide="library" class="w-5 h-5 text-slate-400"></i>
+                            <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">Pusat Sumber Sekolah</h3>
+                            <div class="flex-1 h-px bg-slate-200 ml-2"></div>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                            <a href="https://skpkmiri.rakmaya.com/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="book-marked" class="w-6 h-6 mb-2 text-cyan-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">eLibrary</span>
+                            </a>
+                            <a href="https://rekodbacaannilam.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="bookmark" class="w-6 h-6 mb-2 text-emerald-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod Nilam</span>
+                            </a>
+                            <a href="https://canva.link/8zjum64wt6a4fbk" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="user-check" class="w-6 h-6 mb-2 text-purple-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pengawas PSS</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 3: HEM -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <button onclick="toggleMenu('menu-hem')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                        <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                            <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-rose-600 transition-colors">Hal Ehwal Murid (HEM)</h2>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                            <i data-lucide="chevron-down" id="icon-menu-hem" class="w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div id="menu-hem" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                            <a href="https://sistemdisiplinskpkmiri.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="shield-alert" class="w-6 h-6 mb-2 text-rose-600"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pengurusan Disiplin</span>
+                            </a>
+                            <a href="https://idme.moe.gov.my/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="shield-check" class="w-6 h-6 mb-2 text-rose-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">IDME</span>
+                            </a>
+                            <a href="https://appsjohor.moe.gov.my/rmt/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="utensils" class="w-6 h-6 mb-2 text-red-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laporan RMT</span>
+                            </a>
+                            <a href="https://laporangurubertugas.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="clipboard-check" class="w-6 h-6 mb-2 text-purple-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laporan Guru Bertugas</span>
+                            </a>
+                            <a href="https://jadualgurubertugas.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="calendar" class="w-6 h-6 mb-2 text-orange-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Guru Bertugas</span>
+                            </a>
+                            <a href="https://canva.link/kxgrdwxsar0bxy6" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="user-check" class="w-6 h-6 mb-2 text-cyan-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Senarai Pengawas</span>
+                            </a>
+                            <a href="https://enrolmen-murid.sekolah-8943-cm1.workers.dev/#" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="user-plus" class="w-6 h-6 mb-2 text-teal-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Enrolmen Murid</span>
+                            </a>
+                            <a href="https://senarainamamurid.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="users" class="w-6 h-6 mb-2 text-indigo-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Senarai Nama Murid</span>
+                            </a>
+                            <a href="https://laporanperhimpunan.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="megaphone" class="w-6 h-6 mb-2 text-red-600"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laporan Perhimpunan</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 4: Kokurikulum -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <button onclick="toggleMenu('menu-koko')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                        <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-orange-600 transition-colors">Kokurikulum</h2>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                            <i data-lucide="chevron-down" id="icon-menu-koko" class="w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div id="menu-koko" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                            <a href="https://sites.google.com/moe-dl.edu.my/kkskpkmiri/home" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="layout-dashboard" class="w-6 h-6 mb-2 text-sky-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pengurusan Koko</span>
+                            </a>
+                            <a href="https://erekodkoku.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="clipboard-edit" class="w-6 h-6 mb-2 text-indigo-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod Koko</span>
+                            </a>
+                            <a href="https://sistem-rekod-pencapaian-kokurikulum-murid.sekolah-8943-cm6.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="medal" class="w-6 h-6 mb-2 text-orange-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod Pencapaian Murid</span>
+                            </a>
+                            <a href="https://senaraiahlikelab.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="contact-2" class="w-6 h-6 mb-2 text-violet-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Senarai Ahli</span>
+                            </a>
+                            <a href="https://jadualperjumpaankoko.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="calendar-check" class="w-6 h-6 mb-2 text-emerald-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Perjumpaan</span>
+                            </a>
+                            <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri/pencapaian" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="trophy" class="w-6 h-6 mb-2 text-yellow-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pencapaian Murid</span>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-6 mb-3 flex items-center gap-2">
+                            <i data-lucide="flag" class="w-5 h-5 text-slate-400"></i>
+                            <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">Rumah Sukan</h3>
+                            <div class="flex-1 h-px bg-slate-200 ml-2"></div>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
+                            <a href="https://canva.link/charmander" target="_blank" class="border-red-100 bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
+                                <i data-lucide="flame" class="w-6 h-6 mb-2 text-red-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-red-600">Charmander</span>
+                            </a>
+                            <a href="https://canva.link/bulbasaur" target="_blank" class="border-green-100 bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
+                                <i data-lucide="leaf" class="w-6 h-6 mb-2 text-green-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-green-600">Bulbasaur</span>
+                            </a>
+                            <a href="https://canva.link/w6m59yj0sjlf1cw" target="_blank" class="border-blue-100 bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
+                                <i data-lucide="droplet" class="w-6 h-6 mb-2 text-blue-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-blue-600">Squirtle</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 5: PIBG -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <button onclick="toggleMenu('menu-pibg')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                            <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-amber-600 transition-colors">PIBG</h2>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                            <i data-lucide="chevron-down" id="icon-menu-pibg" class="w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div id="menu-pibg" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                            <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri/pibg" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
+                                <i data-lucide="external-link" class="w-6 h-6 mb-2 text-amber-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laman Rasmi PIBG</span>
+                            </a>
+                            <a href="https://portalibubapa.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
+                                <i data-lucide="users" class="w-6 h-6 mb-2 text-amber-600"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Sarana</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 6: Pengurusan Fasiliti -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <button onclick="toggleMenu('menu-fasiliti')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                        <div class="w-12 h-12 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                            <i data-lucide="monitor" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-violet-600 transition-colors">Pengurusan Fasiliti</h2>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                            <i data-lucide="chevron-down" id="icon-menu-fasiliti" class="w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div id="menu-fasiliti" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                            <a href="https://penggunaan-bilik-khas.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="key" class="w-6 h-6 mb-2 text-cyan-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod Bilik Khas</span>
+                            </a>
+                            <a href="https://penggunaan-peralatan.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                                <i data-lucide="monitor-speaker" class="w-6 h-6 mb-2 text-violet-500"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod peralatan ICT</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 7: Galeri Sekolah (Pautan Terus) -->
+                <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri/galeri" target="_blank" rel="noopener noreferrer" class="w-full bg-white rounded-2xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all border border-slate-100 flex items-center gap-4 group">
+                    <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <i data-lucide="images" class="w-6 h-6"></i>
                     </div>
                     <div class="flex-1 text-left">
-                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-emerald-600 transition-colors">Kurikulum</h2>
+                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-cyan-600 transition-colors">Galeri Sekolah</h2>
+                        <p class="text-xs text-slate-500 font-medium italic">Koleksi foto dan video aktiviti sekolah</p>
                     </div>
-                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
-                        <i data-lucide="chevron-down" id="icon-menu-kurikulum" class="w-5 h-5 transition-transform duration-300"></i>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-cyan-50 group-hover:text-cyan-600 transition-colors shrink-0">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
                     </div>
-                </button>
-                <div id="menu-kurikulum" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                        <a href="https://sistemidsekolah.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="graduation-cap" class="w-6 h-6 mb-2 text-pink-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">ID Delima Murid</span>
-                        </a>
-                        <a href="https://drive.google.com/file/d/17KQM4rxuI0wKLjYOf-SryTiFAVirJJ6N/view?usp=drive_link" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="calendar-days" class="w-6 h-6 mb-2 text-emerald-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Waktu Kelas</span>
-                        </a>
-                        <a href="https://drive.google.com/file/d/1Cj210p6K11cADLJXQD4aUu1xyYC5YLF5/view?usp=drive_link" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="calendar-clock" class="w-6 h-6 mb-2 text-teal-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Waktu Guru</span>
-                        </a>
-                        <a href="https://minitcurai.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="clipboard-list" class="w-6 h-6 mb-2 text-blue-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Minit Curai</span>
-                        </a>
-                        <a href="https://erekodguru.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="notebook" class="w-6 h-6 mb-2 text-rose-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">eRekod Guru</span>
-                        </a>
-                        <button onclick="showMingguPersekolahan()" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="list-ordered" class="w-6 h-6 mb-2 text-indigo-600"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Minggu Persekolahan</span>
-                        </button>
-                    </div>
-                    
-                    <!-- PLC -->
-                    <div class="mt-6 mb-3 flex items-center gap-2">
-                        <i data-lucide="users" class="w-5 h-5 text-slate-400"></i>
-                        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">PLC</h3>
-                        <div class="flex-1 h-px bg-slate-200 ml-2"></div>
-                    </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                        <a href="https://drive.google.com/drive/folders/1LUxSqtMMssGOZ1NdWPbCYMCAkF7d1hKO?usp=drive_link" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="folder-text" class="w-6 h-6 mb-2 text-blue-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Bahan Rujukan PLC</span>
-                        </a>
-                        <a href="https://drive.google.com/drive/folders/19G4hghyuBaNYFNZ1FSf3GOq1-gFr8yME?usp=drive_link" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="clipboard-check" class="w-6 h-6 mb-2 text-green-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Borang Laporan PLC</span>
-                        </a>
-                    </div>
+                </a>
 
-                    <!-- PAPR -->
-                    <div class="mt-6 mb-3 flex items-center gap-2">
-                        <i data-lucide="folder-search" class="w-5 h-5 text-slate-400"></i>
-                        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">PAPR</h3>
-                        <div class="flex-1 h-px bg-slate-200 ml-2"></div>
-                    </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                        <a href="https://myalt.moe.gov.my/pages/more" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="folder-open" class="w-6 h-6 mb-2 text-amber-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laporan PAPR</span>
-                        </a>
-                        <a href="https://editorpapr.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="file-edit" class="w-6 h-6 mb-2 text-blue-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Editor Eviden</span>
-                        </a>
-                        <a href="https://docs.google.com/presentation/d/1-4WPgsEp6UuqT0Lz6HIkxXidToXcbJSgIse0uldWJCA/edit?usp=drivesdk" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="presentation" class="w-6 h-6 mb-2 text-rose-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Sasaran</span>
-                        </a>
-                    </div>
-
-                    <!-- PUSAT SUMBER -->
-                    <div class="mt-6 mb-3 flex items-center gap-2">
-                        <i data-lucide="library" class="w-5 h-5 text-slate-400"></i>
-                        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">Pusat Sumber Sekolah</h3>
-                        <div class="flex-1 h-px bg-slate-200 ml-2"></div>
-                    </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                        <a href="https://skpkmiri.rakmaya.com/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="book-marked" class="w-6 h-6 mb-2 text-cyan-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">eLibrary</span>
-                        </a>
-                        <a href="https://rekodbacaannilam.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="bookmark" class="w-6 h-6 mb-2 text-emerald-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod Nilam</span>
-                        </a>
-                        <a href="https://canva.link/8zjum64wt6a4fbk" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="user-check" class="w-6 h-6 mb-2 text-purple-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pengawas PSS</span>
-                        </a>
+                <!-- Kategori 8: Media Sosial -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <button onclick="toggleMenu('menu-sosial')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                        <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                            <i data-lucide="smartphone" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-pink-600 transition-colors">Media Sosial</h2>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                            <i data-lucide="chevron-down" id="icon-menu-sosial" class="w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div id="menu-sosial" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                            <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
+                                <i data-lucide="globe" class="w-6 h-6 mb-2 text-sky-600"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laman Web Sekolah</span>
+                            </a>
+                            <a href="https://www.facebook.com/share/1FKUYx4kx7/?mibextid=wwXIfr" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
+                                <img src="facebook.png" alt="Facebook" class="w-7 h-7 mb-2 object-contain">
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Facebook</span>
+                            </a>
+                            <a href="https://www.tiktok.com/@skpkmiri?_r=1&_t=ZS-95cvsqHTYWH" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
+                                <img src="tiktok.png" alt="TikTok" class="w-7 h-7 mb-2 object-contain">
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">TikTok</span>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCTJSBprlduP_gc1zleh1uKQ" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
+                                <img src="youtube.png" alt="YouTube" class="w-7 h-7 mb-2 object-contain">
+                                <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">YouTube</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
-            <!-- Kategori 3: HEM -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <button onclick="toggleMenu('menu-hem')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
-                    <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
-                        <i data-lucide="users" class="w-6 h-6"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-rose-600 transition-colors">Hal Ehwal Murid (HEM)</h2>
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
-                        <i data-lucide="chevron-down" id="icon-menu-hem" class="w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                </button>
-                <div id="menu-hem" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                        <a href="https://sistemdisiplinskpkmiri.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="shield-alert" class="w-6 h-6 mb-2 text-rose-600"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pengurusan Disiplin</span>
-                        </a>
-                        <a href="https://idme.moe.gov.my/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="shield-check" class="w-6 h-6 mb-2 text-rose-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">IDME</span>
-                        </a>
-                        <a href="https://appsjohor.moe.gov.my/rmt/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="utensils" class="w-6 h-6 mb-2 text-red-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laporan RMT</span>
-                        </a>
-                        <a href="https://laporangurubertugas.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="clipboard-check" class="w-6 h-6 mb-2 text-purple-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laporan Guru Bertugas</span>
-                        </a>
-                        <a href="https://jadualgurubertugas.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="calendar" class="w-6 h-6 mb-2 text-orange-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Guru Bertugas</span>
-                        </a>
-                        <a href="https://canva.link/kxgrdwxsar0bxy6" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="user-check" class="w-6 h-6 mb-2 text-cyan-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Senarai Pengawas</span>
-                        </a>
-                        <a href="https://enrolmen-murid.sekolah-8943-cm1.workers.dev/#" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="user-plus" class="w-6 h-6 mb-2 text-teal-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Enrolmen Murid</span>
-                        </a>
-                        <a href="https://senarainamamurid.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="users" class="w-6 h-6 mb-2 text-indigo-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Senarai Nama Murid</span>
-                        </a>
-                        <a href="https://laporanperhimpunan.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="megaphone" class="w-6 h-6 mb-2 text-red-600"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laporan Perhimpunan</span>
-                        </a>
-                    </div>
-                </div>
+            <!-- Footer -->
+            <div class="mt-16 text-center text-slate-400 text-sm font-medium">
+                <p>&copy; <span id="current-year"></span> Unit ICT SKPK Miri. Hanya untuk kegunaan warga SKPK Miri.</p>
             </div>
-
-            <!-- Kategori 4: Kokurikulum -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <button onclick="toggleMenu('menu-koko')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
-                    <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
-                        <i data-lucide="award" class="w-6 h-6"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-orange-600 transition-colors">Kokurikulum</h2>
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
-                        <i data-lucide="chevron-down" id="icon-menu-koko" class="w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                </button>
-                <div id="menu-koko" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                        <a href="https://sites.google.com/moe-dl.edu.my/kkskpkmiri/home" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="layout-dashboard" class="w-6 h-6 mb-2 text-sky-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pengurusan Koko</span>
-                        </a>
-                        <a href="https://erekodkoku.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="clipboard-edit" class="w-6 h-6 mb-2 text-indigo-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod Koko</span>
-                        </a>
-                        <a href="https://sistem-rekod-pencapaian-kokurikulum-murid.sekolah-8943-cm6.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="medal" class="w-6 h-6 mb-2 text-orange-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod Pencapaian Murid</span>
-                        </a>
-                        <a href="https://senaraiahlikelab.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="contact-2" class="w-6 h-6 mb-2 text-violet-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Senarai Ahli</span>
-                        </a>
-                        <a href="https://jadualperjumpaankoko.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="calendar-check" class="w-6 h-6 mb-2 text-emerald-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Jadual Perjumpaan</span>
-                        </a>
-                        <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri/pencapaian" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="trophy" class="w-6 h-6 mb-2 text-yellow-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pencapaian Murid</span>
-                        </a>
-                    </div>
-                    
-                    <div class="mt-6 mb-3 flex items-center gap-2">
-                        <i data-lucide="flag" class="w-5 h-5 text-slate-400"></i>
-                        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">Rumah Sukan</h3>
-                        <div class="flex-1 h-px bg-slate-200 ml-2"></div>
-                    </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
-                        <a href="https://canva.link/charmander" target="_blank" class="border-red-100 bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
-                            <i data-lucide="flame" class="w-6 h-6 mb-2 text-red-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-red-600">Charmander</span>
-                        </a>
-                        <a href="https://canva.link/bulbasaur" target="_blank" class="border-green-100 bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
-                            <i data-lucide="leaf" class="w-6 h-6 mb-2 text-green-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-green-600">Bulbasaur</span>
-                        </a>
-                        <a href="https://canva.link/w6m59yj0sjlf1cw" target="_blank" class="border-blue-100 bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
-                            <i data-lucide="droplet" class="w-6 h-6 mb-2 text-blue-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-blue-600">Squirtle</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kategori 5: PIBG -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <button onclick="toggleMenu('menu-pibg')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
-                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
-                        <i data-lucide="heart-handshake" class="w-6 h-6"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-amber-600 transition-colors">PIBG</h2>
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
-                        <i data-lucide="chevron-down" id="icon-menu-pibg" class="w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                </button>
-                <div id="menu-pibg" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                        <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri/pibg" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
-                            <i data-lucide="external-link" class="w-6 h-6 mb-2 text-amber-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laman Rasmi PIBG</span>
-                        </a>
-                        <a href="https://portalibubapa.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
-                            <i data-lucide="users" class="w-6 h-6 mb-2 text-amber-600"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Sarana</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kategori 6: Pengurusan Fasiliti -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <button onclick="toggleMenu('menu-fasiliti')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
-                    <div class="w-12 h-12 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
-                        <i data-lucide="monitor" class="w-6 h-6"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-violet-600 transition-colors">Pengurusan Fasiliti</h2>
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
-                        <i data-lucide="chevron-down" id="icon-menu-fasiliti" class="w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                </button>
-                <div id="menu-fasiliti" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                        <a href="https://penggunaan-bilik-khas.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="key" class="w-6 h-6 mb-2 text-cyan-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod Bilik Khas</span>
-                        </a>
-                        <a href="https://penggunaan-peralatan.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
-                            <i data-lucide="monitor-speaker" class="w-6 h-6 mb-2 text-violet-500"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Rekod peralatan ICT</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kategori 7: Galeri Sekolah (Pautan Terus) -->
-            <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri/galeri" target="_blank" rel="noopener noreferrer" class="w-full bg-white rounded-2xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all border border-slate-100 flex items-center gap-4 group">
-                <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
-                    <i data-lucide="images" class="w-6 h-6"></i>
-                </div>
-                <div class="flex-1 text-left">
-                    <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-cyan-600 transition-colors">Galeri Sekolah</h2>
-                    <p class="text-xs text-slate-500 font-medium italic">Koleksi foto dan video aktiviti sekolah</p>
-                </div>
-                <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-cyan-50 group-hover:text-cyan-600 transition-colors shrink-0">
-                    <i data-lucide="external-link" class="w-4 h-4"></i>
-                </div>
-            </a>
-
-            <!-- Kategori 8: Media Sosial -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <button onclick="toggleMenu('menu-sosial')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
-                    <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
-                        <i data-lucide="smartphone" class="w-6 h-6"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-pink-600 transition-colors">Media Sosial</h2>
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
-                        <i data-lucide="chevron-down" id="icon-menu-sosial" class="w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                </button>
-                <div id="menu-sosial" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                        <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
-                            <i data-lucide="globe" class="w-6 h-6 mb-2 text-sky-600"></i>
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laman Web Sekolah</span>
-                        </a>
-                        <a href="https://www.facebook.com/share/1FKUYx4kx7/?mibextid=wwXIfr" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
-                            <img src="facebook.png" alt="Facebook" class="w-7 h-7 mb-2 object-contain">
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Facebook</span>
-                        </a>
-                        <a href="https://www.tiktok.com/@skpkmiri?_r=1&_t=ZS-95cvsqHTYWH" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
-                            <img src="tiktok.png" alt="TikTok" class="w-7 h-7 mb-2 object-contain">
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">TikTok</span>
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCTJSBprlduP_gc1zleh1uKQ" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
-                            <img src="youtube.png" alt="YouTube" class="w-7 h-7 mb-2 object-contain">
-                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">YouTube</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Footer -->
-        <div class="mt-16 text-center text-slate-400 text-sm font-medium">
-            <p>&copy; <span id="current-year"></span> Unit ICT SKPK Miri. Hanya untuk kegunaan warga SKPK Miri.</p>
         </div>
     </div>
 
@@ -599,10 +599,6 @@
                     tr.className = "border-b border-slate-50 hover:bg-slate-50 transition-colors";
                     tr.innerHTML = `<td class="py-4 px-4 font-extrabold text-indigo-600 text-xs">${item.w}</td><td class="py-4 px-4 font-medium text-slate-700 text-xs">${item.d}</td><td class="py-4 px-4 text-slate-500 text-[10px] italic">${item.c}</td>`;
                 }
-                tr.onclick = function() {
-                    const isToday = new Date().toLocaleDateString('ms-MY') === item.d;
-                    if(isToday) tr.classList.add('ring-2', 'ring-indigo-500');
-                };
                 tableBody.appendChild(tr);
             });
             document.getElementById('modal-minggu').classList.replace('hidden', 'flex');
@@ -615,16 +611,3 @@
 </body>
 </html>
 ```
-
-### Penambahan Sistem Sekuriti (Log Masuk IC):
-
-Untuk melaksanakan sistem sekuriti tanpa mengubah struktur portal asal, saya telah melakukan penambahan berikut:
-
-1.  **Overlay Modal Log Masuk**: Menambah elemen HTML `<div id="login-modal">` di bahagian paling atas `<body>`.
-2.  **Pembungkus Kandungan**: Membungkus keseluruhan kandungan utama portal sedia ada di dalam `<div id="main-content" style="display: none;">` supaya ia tersembunyi secara lalai.
-3.  **Logik Sekuriti (JavaScript)**:
-    *   Fungsi `loadAuthorizedUsers()`: Mengambil data senarai IC yang sah daripada pautan CSV Cikgu secara asinkronus (`async/await`).
-    *   Fungsi `verifyIC()`: Memeriksa sama ada IC yang dimasukkan wujud dalam senarai CSV tersebut.
-    *   **Penyahaktifan Modal**: Jika IC sah, modal akan disembunyikan (`display: none`) dan kandungan utama akan dipaparkan (`display: block`).
-
-Cikgu boleh terus menyalin keseluruhan kod di atas. Sila pastikan pautan CSV Google Sheets tersebut dalam mod **"Publish to Web"** (seperti yang dilakukan pada pautan asal) supaya sistem dapat membaca senarai tersebut.
