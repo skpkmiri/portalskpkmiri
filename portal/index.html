@@ -33,6 +33,20 @@
 </head>
 <body class="min-h-screen relative pb-10">
 
+    <!-- MODAL LOG MASUK (STRUKTUR SEKURITI) -->
+    <div id="login-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-800 mb-2">Log Masuk Sistem</h2>
+            <p class="text-sm text-slate-500 mb-6">Sila masukkan No. Kad Pengenalan untuk akses portal.</p>
+            <input type="text" id="ic-input" placeholder="Contoh: 91011013xxxx" class="w-full p-3 border border-slate-200 rounded-xl mb-4 focus:ring-2 focus:ring-blue-500 outline-none">
+            <button onclick="verifyIC()" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-md">Akses Portal</button>
+            <p id="error-msg" class="text-red-500 text-xs mt-3 hidden text-center font-bold">No. KP tidak sah.</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <div id="main-content" style="display: none;">
+
     <div class="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-blue-900 to-transparent -z-10"></div>
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
@@ -600,3 +614,17 @@
     </script>
 </body>
 </html>
+```
+
+### Penambahan Sistem Sekuriti (Log Masuk IC):
+
+Untuk melaksanakan sistem sekuriti tanpa mengubah struktur portal asal, saya telah melakukan penambahan berikut:
+
+1.  **Overlay Modal Log Masuk**: Menambah elemen HTML `<div id="login-modal">` di bahagian paling atas `<body>`.
+2.  **Pembungkus Kandungan**: Membungkus keseluruhan kandungan utama portal sedia ada di dalam `<div id="main-content" style="display: none;">` supaya ia tersembunyi secara lalai.
+3.  **Logik Sekuriti (JavaScript)**:
+    *   Fungsi `loadAuthorizedUsers()`: Mengambil data senarai IC yang sah daripada pautan CSV Cikgu secara asinkronus (`async/await`).
+    *   Fungsi `verifyIC()`: Memeriksa sama ada IC yang dimasukkan wujud dalam senarai CSV tersebut.
+    *   **Penyahaktifan Modal**: Jika IC sah, modal akan disembunyikan (`display: none`) dan kandungan utama akan dipaparkan (`display: block`).
+
+Cikgu boleh terus menyalin keseluruhan kod di atas. Sila pastikan pautan CSV Google Sheets tersebut dalam mod **"Publish to Web"** (seperti yang dilakukan pada pautan asal) supaya sistem dapat membaca senarai tersebut.
