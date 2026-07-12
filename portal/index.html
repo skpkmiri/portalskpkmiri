@@ -109,10 +109,14 @@
                             <i data-lucide="badge-check" class="w-6 h-6 mb-2 text-blue-600"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">ePBPPP</span>
                         </a>
-                        <!-- e-SHARING -->
                         <a href="https://esharingskpkmiri.mohamadabidin910110.workers.dev/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="share-2" class="w-6 h-6 mb-2 text-violet-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">e-Sharing</span>
+                        </a>
+                        <!-- SPARK -->
+                        <a href="https://pahanmy.github.io/spark/index.html" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="sparkles" class="w-6 h-6 mb-2 text-yellow-500 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">SPARK</span>
                         </a>
                     </div>
                 </div>
@@ -157,6 +161,23 @@
                             <i data-lucide="list-ordered" class="w-6 h-6 mb-2 text-indigo-600"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Minggu Persekolahan</span>
                         </button>
+                    </div>
+                    
+                    <!-- PLC -->
+                    <div class="mt-6 mb-3 flex items-center gap-2">
+                        <i data-lucide="users" class="w-5 h-5 text-slate-400"></i>
+                        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">PLC</h3>
+                        <div class="flex-1 h-px bg-slate-200 ml-2"></div>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                        <a href="https://drive.google.com/drive/folders/1LUxSqtMMssGOZ1NdWPbCYMCAkF7d1hKO?usp=drive_link" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="folder-text" class="w-6 h-6 mb-2 text-blue-500"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Bahan Rujukan PLC</span>
+                        </a>
+                        <a href="https://drive.google.com/drive/folders/19G4hghyuBaNYFNZ1FSf3GOq1-gFr8yME?usp=drive_link" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="clipboard-check" class="w-6 h-6 mb-2 text-green-500"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Borang Laporan PLC</span>
+                        </a>
                     </div>
 
                     <!-- PAPR -->
@@ -218,6 +239,10 @@
                 </button>
                 <div id="menu-hem" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                        <a href="https://sistemdisiplinskpkmiri.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="shield-alert" class="w-6 h-6 mb-2 text-rose-600"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Pengurusan Disiplin</span>
+                        </a>
                         <a href="https://idme.moe.gov.my/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="shield-check" class="w-6 h-6 mb-2 text-rose-500"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">IDME</span>
@@ -335,6 +360,10 @@
                         <a href="https://sites.google.com/moe-dl.edu.my/skpkmiri/pibg" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
                             <i data-lucide="external-link" class="w-6 h-6 mb-2 text-amber-500"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Laman Rasmi PIBG</span>
+                        </a>
+                        <a href="https://portalibubapa.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm border flex flex-col items-center text-center group/item">
+                            <i data-lucide="users" class="w-6 h-6 mb-2 text-amber-600"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Sarana</span>
                         </a>
                     </div>
                 </div>
@@ -556,6 +585,10 @@
                     tr.className = "border-b border-slate-50 hover:bg-slate-50 transition-colors";
                     tr.innerHTML = `<td class="py-4 px-4 font-extrabold text-indigo-600 text-xs">${item.w}</td><td class="py-4 px-4 font-medium text-slate-700 text-xs">${item.d}</td><td class="py-4 px-4 text-slate-500 text-[10px] italic">${item.c}</td>`;
                 }
+                tr.onclick = function() {
+                    const isToday = new Date().toLocaleDateString('ms-MY') === item.d;
+                    if(isToday) tr.classList.add('ring-2', 'ring-indigo-500');
+                };
                 tableBody.appendChild(tr);
             });
             document.getElementById('modal-minggu').classList.replace('hidden', 'flex');
