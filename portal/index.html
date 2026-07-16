@@ -113,7 +113,6 @@
                             <i data-lucide="share-2" class="w-6 h-6 mb-2 text-violet-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">e-Sharing</span>
                         </a>
-                        <!-- SPARK -->
                         <a href="https://pahanmy.github.io/spark/index.html" target="_blank" rel="noopener noreferrer" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
                             <i data-lucide="sparkles" class="w-6 h-6 mb-2 text-yellow-500 group-hover/item:scale-110 transition-transform"></i>
                             <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">SPARK</span>
@@ -409,6 +408,33 @@
                     <i data-lucide="external-link" class="w-4 h-4"></i>
                 </div>
             </a>
+
+            <!-- Kategori Tambahan: Bahan PDPC -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                <button onclick="toggleMenu('menu-pdpc')" class="w-full p-4 md:p-5 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <i data-lucide="presentation" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h2 class="text-lg md:text-xl font-bold text-slate-800 group-hover:text-teal-600 transition-colors">Bahan PDPC</h2>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-colors">
+                        <i data-lucide="chevron-down" id="icon-menu-pdpc" class="w-5 h-5 transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="menu-pdpc" class="hidden border-t border-slate-100 bg-slate-50/50 p-4 md:p-5 menu-content">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                        <a href="https://permainaninteraktif.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="folder-open" class="w-6 h-6 mb-2 text-teal-500"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Bahan Pembelajaran Pelbagai</span>
+                        </a>
+                        <a href="https://teach-inekspress.sekolah-8943-cm1.workers.dev/" target="_blank" class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col items-center text-center group/item">
+                            <i data-lucide="rocket" class="w-6 h-6 mb-2 text-rose-500"></i>
+                            <span class="text-xs md:text-sm font-bold text-slate-700 leading-tight">Teach-in Express</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             <!-- Kategori 8: Media Sosial -->
             <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
